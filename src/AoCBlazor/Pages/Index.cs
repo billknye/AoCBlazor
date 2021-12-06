@@ -43,7 +43,7 @@ public class Index : ConsoleComponentBase
 
         var routes = components
             .Select(component => GetRouteFromComponent(component))
-            .Where(config => config is not null)
+            .Where(config => config is not null && config != "/")
             .OrderBy(n => n)
             .ToList();
 
