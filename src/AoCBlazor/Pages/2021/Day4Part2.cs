@@ -18,6 +18,9 @@ public partial class Day4Part2Of2021 : ConsoleComponentBase
             lines = data.Replace("\r", "").Split('\n');
         }
 
+        if (lines.Length <= 1)
+            return;
+
         Console.WriteLine("Running...");
         StateHasChanged();
 
