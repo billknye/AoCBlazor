@@ -39,4 +39,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 cp ./AoCBlazor/bin/Release/net6.0/wwwroot/ s3://aoc.billknye.com --recursive
+        run: aws s3 cp ./AoCBlazor/bin/Release/net6.0/wwwroot s3://aoc.billknye.com --recursive
