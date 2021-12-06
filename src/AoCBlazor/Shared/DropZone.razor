@@ -7,10 +7,10 @@
 <InputFile class="fileUpload" OnChange="@OnChange" @ref="inputFile" />
 
 @code {
-    InputFile inputFile;
+        InputFile inputFile;
 
-    IJSObjectReference _module;
-    IJSObjectReference _dropZoneInstance;
+        IJSObjectReference _module;
+        IJSObjectReference _dropZoneInstance;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -31,7 +31,24 @@
         using var ms = new MemoryStream();
         await stream.CopyToAsync(ms);
 
-        console.PostReadLine(Encoding.UTF8.GetString(ms.ToArray()));
+        // Detect and remove utf8 bom from beginning of stream
+        var encoding = new UTF8Encoding(true);
+        var preamble = encoding.GetPreamble();
+
+        if (ms.Length > preamble.Length)
+        {
+            var tmp = new byte[preamble.Length];
+            ms.Position = 0;
+            ms.Read(tmp);
+
+            if (tmp.SequenceEqual(preamble))
+            { 
+                console.PostReadLine(encoding.GetString(ms.ToArray().AsSpan(preamble.Length))); 
+                return;
+            }
+        }
+
+        console.PostReadLine(encoding.GetString(ms.ToArray()));
     }
 
     // Unregister the drop zone events

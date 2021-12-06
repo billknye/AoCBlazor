@@ -22,7 +22,6 @@ public partial class Day4Part2Of2021 : ConsoleComponentBase
             return;
 
         Console.WriteLine("Running...");
-        StateHasChanged();
 
         var drawnNumbers = lines[0].Split(',').ToList();
 
@@ -36,7 +35,6 @@ public partial class Day4Part2Of2021 : ConsoleComponentBase
             lineIndex += 6;
             boards.Add(board);
         }
-
 
         while (true)
         {
@@ -119,7 +117,7 @@ public partial class Day4Part2Of2021 : ConsoleComponentBase
         }
     }
 
-    static int DrawNumber(List<string> drawnNumbers)
+    int DrawNumber(List<string> drawnNumbers)
     {
         var entry = drawnNumbers[0];
         drawnNumbers.RemoveAt(0);
