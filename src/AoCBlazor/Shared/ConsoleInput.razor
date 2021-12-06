@@ -1,0 +1,14 @@
+﻿@inject ConsoleEx console
+<form @onsubmit="Append">
+    <input type="text" class="consoleInput" @bind="input" autofocus="autofocus" />
+    <button style="position: fixed; top: -100px;">go</button>
+</form>
+@code {
+    private string? input;
+
+    private void Append()
+    {
+        console.PostReadLine(input);
+        input = null;
+    }
+}

@@ -1,0 +1,23 @@
+﻿@inject ConsoleEx console
+@implements IDisposable
+
+<div class="consoleContainer">
+    <div class="consoleContent">@console.Markup</div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        console.LineAdded += LineAdded;
+    }
+
+    private void LineAdded(object? sender, EventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        console.LineAdded -= LineAdded;
+    }
+}
