@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoCBlazor", "AoCBlazor\AoCBlazor.csproj", "{8528AC28-C074-4221-B0B6-1953F4F5D675}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoCBlazor", "AoCBlazor\AoCBlazor.csproj", "{8528AC28-C074-4221-B0B6-1953F4F5D675}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{1E20A805-1DAE-47DF-98FD-962F6D852135}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\main.yml = ..\.github\workflows\main.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
